@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .cont {
+            padding: 30px;
+            display: flex;
+        }
+        .box{
+            font-family:monospace;
+            text-align: center;
+            
+        }
+        p{
+            font-size: 16px;
+        }
+        .item1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+       
+        .progress-java {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(rgb(202, 98, 13) 0deg, white 0deg);
+    
+        }
+        .progress-js {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(rgb(210, 185, 1) 0deg, white 0deg);
+    
+        }
+      
+      
+       
+        .img-holder-java {
+            width: 70%;
+            height: 70%;
+            background-color: rgb(227, 224, 205);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+        }
+        
+        .img-holder-js {
+            width: 70%;
+            height: 70%;
+            background-color: rgb(247, 221, 51);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+        }
+        .progress-html {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(rgb(231, 111, 5) 0deg, white 0deg);
+    
+        }
+      
+      
+       
+        .img-holder-html {
+            width: 70%;
+            height: 70%;
+            background-color: rgb(227, 224, 205);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+        }
+        .progress-css {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(rgb(20, 13, 122) 0deg, white 0deg);
+    
+        }
+      
+      
+       
+        .img-holder-css {
+            width: 70%;
+            height: 70%;
+            background-color: rgb(8, 12, 153);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+        }
+        .progress-react {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(rgb(97, 174, 229) 0deg, white 0deg);
+    
+        }
+      
+      
+       
+        .img-holder-react {
+            width: 70%;
+            height: 70%;
+            background-color: rgb(150, 216, 225);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+        }
+        .progress-spring {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(rgb(11, 215, 96) 0deg, white 0deg);
+    
+        }
+      
+      
+       
+        .img-holder-spring {
+            width: 70%;
+            height: 70%;
+            background-color: rgb(128, 233, 94);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+        }
+     
+       
+      
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="box">
+            <div class="item1">
+                <div class="progress-java"></div>
+                <div class="img-holder-java">
+                    <img src="./pngwing.com (1).png" alt="Image">
+                </div>
+              
+            </div>
+            <h4>Java Knowledge</h4> 
+            <p id="java">0%</p>
+        </div>
+        <div class="box">
+            <div class="item1">
+                <div class="progress-js"></div>
+                <div class="img-holder-js">
+                    <img src="./pngwing.com.png" alt="Image">
+                </div>
+              
+            </div>
+            <h4>JavaScript Knowledge</h4> 
+            <p id="js">0%</p>
+        </div>
+        <div class="box">
+            <div class="item1">
+                <div class="progress-html"></div>
+                <div class="img-holder-html">
+                    <img src="./pngwing.com (2).png" alt="Image">
+                </div>
+              
+            </div>
+            <h4>HTML Knowledge</h4> 
+            <p id="html">0%</p>
+        </div>
+
+        <div class="box">
+            <div class="item1">
+                <div class="progress-css"></div>
+                <div class="img-holder-css">
+                    <img src="./pngwing.com (3).png" alt="Image">
+                </div>
+              
+            </div>
+            <h4>Css Knowledge</h4> 
+            <p id="css">0%</p>
+        </div>
+
+        <div class="box">
+            <div class="item1">
+                <div class="progress-react"></div>
+                <div class="img-holder-react">
+                    <img src="./pngwing.com (4).png" alt="Image">
+                </div>
+              
+            </div>
+            <h4>React Knowledge</h4> 
+            <p id="react">0%</p>
+        </div>
+
+        <div class="box">
+            <div class="item1">
+                <div class="progress-spring"></div>
+                <div class="img-holder-spring">
+                    <img src="./icons8-spring-boot-240.png" alt="Image">
+                </div>
+              
+            </div>
+            <h4>Springboot Knowledge</h4> 
+            <p id="spring">0%</p>
+        </div>
+       
+    </div>
+    <script>
+    
+document.addEventListener('DOMContentLoaded', function() {
+    const pjava = document.querySelector('.progress-java');
+    const javatext = document.querySelector('#java');
+    const endV = 180;
+  
+   
+    let start=0;
+  let myInt =  setInterval(()=>{
+        pjava.style.background = `conic-gradient(rgb(202, 98, 13) ${start}deg, white 0deg)`;
+        javatext.textContent=`${Math.ceil((start/360)*100)}%`
+        start++;
+        
+        if(start>endV){
+            clearInterval(myInt)
+        }
+      
+    },20)
+
+
+
+    const pjs = document.querySelector('.progress-js');
+    const jstext = document.querySelector('#js');
+    const endVjs = 180;
+  
+   
+    let startjs=0;
+  let myIntjs =  setInterval(()=>{
+        pjs.style.background = `conic-gradient(rgb(44, 44, 44)  ${startjs}deg, white 0deg)`;
+        jstext.textContent=`${Math.ceil((startjs/360)*100)}%`
+        startjs++;
+        
+        if(startjs>endVjs){
+            clearInterval(myIntjs)
+        }
+       
+    },20)
+
+
+    const phtml = document.querySelector('.progress-html');
+    const htmltext = document.querySelector('#html');
+    const endVhtml = 236;
+  
+   
+    let starthtml=0;
+  let myInthtml =  setInterval(()=>{
+        phtml.style.background = `conic-gradient(rgb(231, 111, 5)  ${starthtml}deg, white 0deg)`;
+        htmltext.textContent=`${Math.ceil((starthtml/360)*100)}%`
+        starthtml++;
+        
+        if(starthtml>endVhtml){
+            clearInterval(myInthtml)
+        }
+       
+    },20)
+
+
+    const pcss = document.querySelector('.progress-css');
+    const csstext = document.querySelector('#css');
+    const endcss = 185;
+  
+   
+    let startcss=0;
+  let myIntcss =  setInterval(()=>{
+        pcss.style.background = `conic-gradient(rgb(20, 13, 122)  ${startcss}deg, white 0deg)`;
+        csstext.textContent=`${Math.ceil((startcss/360)*100)}%`
+        startcss++;
+        
+        if(startcss>endcss){
+            clearInterval(myIntcss)
+        }
+      
+    },20)
+
+
+    const preact = document.querySelector('.progress-react');
+    const reacttext = document.querySelector('#react');
+    const endreact = 90;
+  
+   
+    let startreact=0;
+  let myIntreact =  setInterval(()=>{
+        preact.style.background = `conic-gradient(rgb(97, 174, 229) ${startreact}deg, white 0deg)`;
+        reacttext.textContent=`${Math.ceil((startreact/360)*100)}%`
+        startreact++;
+        
+        if(startreact>endreact){
+            clearInterval(myIntreact)
+        }
+       
+    },20)
+
+
+    
+    const pspring = document.querySelector('.progress-spring');
+    const springtext = document.querySelector('#spring');
+    const endspring = 120;
+  
+   
+    let startspring=0;
+  let myIntspring =  setInterval(()=>{
+        pspring.style.background = `conic-gradient(rgb(11, 215, 96) ${startspring}deg, white 0deg)`;
+        springtext.textContent=`${Math.ceil((startspring/360)*100)}%`
+        startspring++;
+        
+        if(startspring > endspring){
+            clearInterval(myIntspring)
+        }
+       
+    },20)
+
+
+
+  
+});
+
+    </script>
+</body>
+</html>
